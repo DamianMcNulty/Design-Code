@@ -3,7 +3,7 @@ var browserSync = require('browser-sync');
 var sass        = require('gulp-sass');
 var prefix      = require('gulp-autoprefixer');
 var cp          = require('child_process');
-var jade        = require('gulp-jade');
+var pug        = require('gulp-pug');
 
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
@@ -17,7 +17,7 @@ var messages = {
  */
 gulp.task('jekyll-build', function (done) {
     browserSync.notify(messages.jekyllBuild);
-    return cp.spawn('jekyll', ['build'], {stdio: 'inherit'})
+    return cp.spawn('jekyll.bat', ['build'], {stdio: 'inherit'})
         .on('close', done);
 });
 
@@ -68,12 +68,17 @@ gulp.task('sass', function () {
 * Travis is trying to Gulp stuff
 */
 
-gulp.task('jade', function(){
-  return gulp.src('_jadefiles/*.jade')
-  .pipe(jade())
+// gulp.task('jade', function(){
+//   return gulp.src('_jadefiles/*.jade')
+//   .pipe(jade())
+//   .pipe(gulp.dest('_includes'));
+// });
+
+gulp.task('pug', function(){
+  return gulp.src('_pugfiles/*.pug')
+  .pipe(pug())
   .pipe(gulp.dest('_includes'));
 });
-
 
 /**
  * Watch scss files for changes & recompile
@@ -81,8 +86,10 @@ gulp.task('jade', function(){
  */
 gulp.task('watch', function () {
     gulp.watch('assets/css/**', ['sass']);
+    gulp.watch('assets/js/**', ['jekyll-rebuild']);
     gulp.watch(['index.html', '_layouts/*.html', '_includes/*'], ['jekyll-rebuild']);
-    gulp.watch('_jadefiles/*.jade', ['jade']);
+    gulp.watch('assets/js/**', ['jekyll-rebuild']);
+    gulp.watch('_pugfiles/*.pug', ['pug']);
 });
 
 
