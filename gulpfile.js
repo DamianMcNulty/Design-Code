@@ -84,7 +84,8 @@ gulp.task('pug', function(){
 gulp.task("deploy", ["jekyll-build"], function () {
     return gulp.src("./_site/**/*")
         .pipe(deploy({
-            branch: 'master'
+            branch: 'master',
+            cacheDir: 'app'
         }));
 });
 
