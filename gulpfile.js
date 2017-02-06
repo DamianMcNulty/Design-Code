@@ -4,6 +4,7 @@ var sass        = require('gulp-sass');
 var prefix      = require('gulp-autoprefixer');
 var cp          = require('child_process');
 var pug        = require('gulp-pug');
+var deploy     = require("gulp-gh-pages");
 
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
@@ -78,6 +79,13 @@ gulp.task('pug', function(){
   return gulp.src('_pugfiles/*.pug')
   .pipe(pug())
   .pipe(gulp.dest('_includes'));
+});
+
+gulp.task("deploy", ["jekyll-build"], function () {
+    return gulp.src("./_site/**/*")
+        .pipe(deploy({
+            branch: 'master'
+        }));
 });
 
 /**
