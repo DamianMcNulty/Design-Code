@@ -4,7 +4,6 @@ var sass        = require('gulp-sass');
 var prefix      = require('gulp-autoprefixer');
 var cp          = require('child_process');
 var pug        = require('gulp-pug');
-var deploy     = require("gulp-gh-pages");
 
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
@@ -41,7 +40,7 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
 gulp.task('browser-sync', ['sass', 'jekyll-build'], function() {
     browserSync({
         server: {
-            baseDir: 'app'
+            baseDir: '_site'
         },
         notify: false
     });
@@ -60,20 +59,12 @@ gulp.task('sass', function () {
             onError: browserSync.notify
         }))
         .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
-        .pipe(gulp.dest('app/assets/css'))
+        .pipe(gulp.dest('_site/assets/css'))
         .pipe(browserSync.reload({stream:true}))
         .pipe(gulp.dest('assets/css'));
 });
 
-/*
-* Travis is trying to Gulp stuff
-*/
 
-// gulp.task('jade', function(){
-//   return gulp.src('_jadefiles/*.jade')
-//   .pipe(jade())
-//   .pipe(gulp.dest('_includes'));
-// });
 
 gulp.task('pug', function(){
   return gulp.src('_pugfiles/*.pug')
@@ -81,13 +72,6 @@ gulp.task('pug', function(){
   .pipe(gulp.dest('_includes'));
 });
 
-gulp.task("deploy", ["jekyll-build"], function () {
-    return gulp.src("./_site/**/*")
-        .pipe(deploy({
-            branch: 'master',
-            cacheDir: 'app'
-        }));
-});
 
 /**
  * Watch scss files for changes & recompile
