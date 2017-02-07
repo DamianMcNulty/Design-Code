@@ -1,0 +1,58 @@
+h1
+  margin-bottom: 15px;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 1.75em;
+
+#banner
+  background: 
+    image: url(../img/placeholder1000x250.png)
+    repeat: no-repeat
+    position: center
+  max-width: 1000px
+  height: 250px;
+  border: 5px solid black
+
+.label
+  position: absolute;  
+  top: 0px;
+  right: 0px;
+  font-size: 1.25em;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  width: 150px;
+  text-align: center;
+
+#orange
+  background-color: $chicken-color
+
+#red
+  background-color: $beef-color
+
+#yellow
+  background-color: $sushi-color
+
+p
+  color: black;
+  text-align: left;
+  padding-top: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: rgba(63, 81, 181, 0.33);  
+  position: relative;
+  border: 1px black solid;
+  font-size: 1em;
+
+@media (min-width: 992px) 
+  row
+    display: flex
+
+@media (min-width: 768px) and (max-width: 991px)
+  row
+    display: flex
+
+@media (max-width: 767px)
+  row
+    display: flex
+    flex-direction: column
