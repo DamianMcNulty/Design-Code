@@ -487,27 +487,22 @@ p {
   font-size: 1em; }
 
 @media (min-width: 992px) {
-  row {
+  .row {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; } }
 
 @media (min-width: 768px) and (max-width: 991px) {
-  row {
+  .row {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; } }
 
 @media (max-width: 767px) {
-  row {
+  .row {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column; } }
+    display: flex; } }
