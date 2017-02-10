@@ -17,6 +17,7 @@ h1
   max-width: 1000px
   height: 250px;
   border: 5px solid black
+  margin: 0 auto
 
 .label
   position: absolute;  
@@ -44,7 +45,7 @@ p
   padding-top: 50px;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: rgba(63, 81, 181, 0.33);  
+  background-color: $primary-color  
   position: relative;
   border: 1px black solid;
   font-size: 1em;
@@ -52,6 +53,8 @@ p
 @media (min-width: 992px) 
   .row
     display: flex
+    margin: 0 5vw
+
 
 @media (min-width: 768px) and (max-width: 991px)
   .row
@@ -60,3 +63,6 @@ p
 @media (max-width: 767px)
   .row
     display: flex
+    flex-direction: column
+    align-items center
+    margin: 0 10vw
