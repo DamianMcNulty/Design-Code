@@ -9,42 +9,10 @@
   </head>
   <body>
     
-  <header class="centered-navigation" role="banner"><div class="centered-navigation-wrapper"><a class="mobile-logo" href="javascript:void(0)"><img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png" alt="Logo image"/></a> <a class="centered-navigation-mobile-menu" id="js-centered-navigation-mobile-menu" href="javascript:void(0)">MENU</a><nav role="navigation"><ul class="centered-navigation-menu show" id="js-centered-navigation-menu"><li class="nav-link"><a href="javascript:void(0)">Portfolio</a></li><li class="nav-link"><a href="javascript:void(0)">About Us</a></li><li class="nav-link"><a href="javascript:void(0)">Contact</a></li><li class="nav-link logo"><a class="logo" href="javascript:void(0)"><img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png" alt="Logo image"/></a></li><li class="nav-link"><a href="javascript:void(0)">Testimonials</a></li><li class="nav-link more" id="js-centered-more"><a href="javascript:void(0)">More</a><ul class="submenu"><li><a href="javascript:void(0)">Submenu Item</a></li><li><a href="javascript:void(0)">Another Item</a></li><li class="more"><a href="javascript:void(0)">Item with submenu</a><ul class="submenu fly-out-right"><li><a href="javascript:void(0)">Sub-submenu Item</a></li><li><a href="javascript:void(0)">Another Item</a></li></ul></li><li class="more"><a href="javascript:void(0)">Another submenu</a><ul class="submenu fly-out-right"><li><a href="javascript:void(0)">Sub-submenu</a></li><li><a href="javascript:void(0)">An Item</a></li></ul></li></ul></li><li class="nav-link"><a href="javascript:void(0)">Sign up</a></li></ul></nav></div></header>
-<div id="banner"></div><div class="row"><p><span class="label" id="orange">Welcome</span><span class="circle" id="orange"></span><content> </content></p><p><span class="label" id="red">About</span><content> </content></p><p><span class="label" id="yellow">Job Vacancies</span><content></content></p><p><span class="label" id="orange">Consultant's Area</span><content> </content></p><p><span class="label" id="red">Portfolio</span><content> </content></p><p><span class="label" id="yellow">Contact</span><content></content></p></div>
   
-  <script>
-    $(window).on("load resize",function(e) {
-    var more = document.getElementById("js-centered-more");
-
-    if ($(more).length > 0) {
-      var windowWidth = $(window).width();
-      var moreLeftSideToPageLeftSide = $(more).offset().left;
-      var moreLeftSideToPageRightSide = windowWidth - moreLeftSideToPageLeftSide;
-
-      if (moreLeftSideToPageRightSide < 330) {
-        $("#js-centered-more .submenu .submenu").removeClass("fly-out-right");
-        $("#js-centered-more .submenu .submenu").addClass("fly-out-left");
-      }
-
-      if (moreLeftSideToPageRightSide > 330) {
-        $("#js-centered-more .submenu .submenu").removeClass("fly-out-left");
-        $("#js-centered-more .submenu .submenu").addClass("fly-out-right");
-      }
-    }
-
-    var menuToggle = $("#js-centered-navigation-mobile-menu").unbind();
-    $("#js-centered-navigation-menu").removeClass("show");
-
-    menuToggle.on("click", function(e) {
-      e.preventDefault();
-      $("#js-centered-navigation-menu").slideToggle(function(){
-        if($("#js-centered-navigation-menu").is(":hidden")) {
-          $("#js-centered-navigation-menu").removeAttr("style");
-        }
-      });
-    });
-  });
-  </script>
+<div id="banner"></div><div class="row"><p><span class="label" id="orange">Label    </span><span class="circle" id="orange"></span><content> </content></p><p><span class="label" id="red">Label </span><content> </content></p><p><span class="label" id="yellow">Label </span><content></content></p><p><span class="label" id="orange">Label </span><content> </content></p><p><span class="label" id="red">Label </span><content> </content></p><p><span class="label" id="yellow">Label </span><content></content></p></div>
+  
+  
 
   <script type="text/javascript" src="assets/js/bundle.js"></script>
   </body>
