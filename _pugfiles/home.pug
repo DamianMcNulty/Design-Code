@@ -1,21 +1,14 @@
+mixin fruit(colour)
+  p
+    span.label#orange #{colour}    
+    span.circle#orange
+    content
+
 #banner
 .row
-  p
-    span.label#orange Label    
-    span.circle#orange
-    content  
-  p
-    span.label#red Label 
-    content  
-  p
-    span.label#yellow Label 
-    content
-  p
-    span.label#orange Label 
-    content  
-  p
-    span.label#red Label 
-    content  
-  p
-    span.label#yellow Label 
-    content
+  +fruit("orange")
+  +fruit("red")
+  +fruit("yellow")
+  +fruit("orange")
+  +fruit("red")
+  +fruit("yellow")
